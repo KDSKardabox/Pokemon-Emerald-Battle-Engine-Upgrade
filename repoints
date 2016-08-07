@@ -247,3 +247,44 @@ battlescripts_table 0804BCE4
 NewPlayAnimationTable 0805DA3C
 ### Pursuit mega evolution
 pursuit_megaevo_bs 082DAB3F
+### Contest data table
+contestdatatable 080D85D6
+contestdatatable 080D85F0
+contestdatatable 080D9B1C
+contestdatatable 080DB318
+contestdatatable 080DB3F0
+contestdatatable 080DB45C
+contestdatatable 080DB4D8
+contestdatatable 080DD10C
+contestdatatable 080DD2D0
+contestdatatable 080DD4D0
+contestdatatable 080DDA18
+contestdatatable 080E4568
+contestdatatable 080E59AC
+contestdatatable 080E5BC8
+contestdatatable 080E5E58
+contestdatatable 080E5EB0
+contestdatatable 080E6204
+contestdatatable 080E629C
+contestdatatable 080E67B0
+contestdatatable 080E697C
+contestdatatable 08156F3C
+contestdatatable 08157010
+contestdatatable 0815710C
+contestdatatable 081571E0
+contestdatatable 0815729C
+contestdatatable 08157408
+contestdatatable 08157B30
+contestdatatable 08158104
+contestdatatable 081583B4
+contestdatatable 08161414
+contestdatatable 08161414
+contestdatatable 081C247C
+contestdatatable 081C3E98
+contestdatatable 081C3F2C
+contestdatatable 081C44D0
+contestdatatable 081C4564
+contestdatatable 081D2BC4
+### Contest combos
+contestcombotable 080E546C 
+contestcombotable 080E5BCC

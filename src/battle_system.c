@@ -3629,7 +3629,7 @@ u8 update_turn_counters()
                     call_bc_move_exec((void*)0x82DACD2);
                 else
                 {
-                    battle_weather.flags.sun = 1;
+                    battle_weather.flags.sun = 0;
                     call_bc_move_exec((void*)0x82DACE0);
                 }
             }
