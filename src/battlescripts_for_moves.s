@@ -115,7 +115,7 @@ battlescripts_table:
 .word ATTACK_HEAL_TARGET_STATUS	@32 arg1 is status flag, BP doubled is done in damage calc function
 .word ATTACK_PROTECTION_BREAK	@33 if move is succesfull, it breaks protection for the turn; arg1 if 0 = broke through protect message, else feint message
 .word PROTECT_LIKE_MOVE		@34 protect, shields, endure, all that stuff goes here
-.word ATTACK_SWITCH		@35 Volt Tackle basically; arg1 is a status flag that can be applied coz why not
+.word ATTACK_SWITCH		@35 Volt Switch/U-Turn basically; arg1 is a status flag that can be applied coz why not
 .word ATTACK_ONLYIF_TARGET_ATTACKS	@36 Sucker Punch; arg1 is a status flag that can be applied
 .word ATTRACT			@37 just attract
 .word LOWERSTAT_IFOPPOSITEGENDER	@38 Captivate basically; arg1 is statvalue
@@ -174,7 +174,7 @@ battlescripts_table:
 .word 0x082D9249		@91 Transform
 .word 0x082D94F5		@92 Splash
 .word 0x082D8F9C		@93 Rest
-.word ATTACKING_MOVE @	".word CONVERSIONS			"	94
+.word CONVERSIONS		@94 Conversion and Conversion2, based on move IDs
 .word TRIATTACK 		@95 Tri Attack
 .word 0x082D9409		@96 Substitute
 .word 0x082D962D		@97 Sketch
@@ -188,11 +188,11 @@ battlescripts_table:
 .word ROLLOUT         	@105 Rollout, Ice Ball
 .word FURYCUTTER     	@106 fury cutter
 .word 0x082D964C		@107 Sleep Talk
-.word ATTACKING_MOVE @	.word HEAL_BELL             	108
+.word PARTYHEAL			@108 Heal Bell/Aromatherapy
 .word PRESENTT          @109 Present
 .word 0x082D9A8E		@110 Safeguard
 .word 0x082D9585 		@111 Pain Split
-.word 0x082D9AB5 		@112 Baton Pass
+.word 0x082DA2B6 		@112 Magic Coat
 .word RAPID_SPIN        @113 Rapid Spin
 .word 0x082D9BA1        @114 Psych Up
 .word 0x082D9CC4		@115 Future Sight
@@ -207,7 +207,7 @@ battlescripts_table:
 .word 0x082DA26F 		@124 Wish
 .word 0x082DA27F		@125 Assist
 .word 0x082DA296		@126 Ingrain
-.word 0x082DA2B6 		@127 Magic Coat
+.word 0x082D9AB5 		@127 Baton Pass
 .word 0x082DA2CB		@128 Recycle
 .word SNORE				@129 Snore ;arg1 status flag to be applied
 .word BRICKBREAK		@130 Brick Break
@@ -221,7 +221,7 @@ battlescripts_table:
 .word 0x082DA529		@138 Water/Mud Sport
 .word BERRYDESTROY		@139 Incinerate, Pluck, Bug Bite; arg1 is 1 if berry is stolen and eaten, 0 if only destroyed
 .word SETTAILWIND		@140 Tailwind
-.word ATTACKING_MOVE @	".word ACUPRESSURE			"	141
+.word ACUPRESSURE		@141 Acupressure
 .word ATTACKING_MOVE @	".word FLINGG				"	142
 .word POWERTRICK		@143 Power Trick
 .word SETLUCKYCHANT		@144 Lucky Chant
@@ -251,6 +251,80 @@ battlescripts_table:
 .word LASTRESORT		@168 Last Resort
 .word TOPSYTURVY		@169 Topsy Turvy
 .word BESTOW			@170 Bestow
+.word TARGETSTATSWITCH	@171 Parting Shot; @arg1 bitfield for stats to raise; arg 2 by how much
+
+ACUPRESSURE:
+	attackcanceler
+	attackstring
+	ppreduce
+	callasm_cmd 105
+	.word MOVE_FAILED + 2
+	statbuffchange 0x1 0x82D8D60
+	goto_cmd 0x82D8D4E
+
+PARTYHEAL:
+	attackcanceler
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	call PARTYHEAL_STRING
+	printfromtable 0x85CC904
+	waitmessage 0x40
+	setbyte 0x02024211 0x0
+	callasm_cmd 104
+	goto_cmd ENDTURN
+	
+.global PARTYHEAL_USER
+PARTYHEAL_USER:
+	printfromtable statushealstrings
+	waitmessage 0x40
+	statusiconeupdate bank_attacker
+	return_cmd
+	
+.global PARTYHEAL_ALLY
+PARTYHEAL_ALLY:
+	printfromtable statushealstrings
+	waitmessage 0x40
+	statusiconeupdate 10
+	return_cmd
+	
+.global PARTYHEAL_TEAM
+PARTYHEAL_TEAM:
+	printfromtable statushealstrings
+	waitmessage 0x40
+	return_cmd
+	
+PARTYHEAL_STRING:
+	jumpifmove MOVE_HEAL_BELL STRING_SETZERO
+	setbyte MultiStringChooser 4
+	return_cmd
+STRING_SETZERO:
+	setbyte MultiStringChooser 0x0
+	return_cmd
+
+CONVERSIONS:
+	attackcanceler
+	accuracycheck MOVE_FAILED 0xFFFF
+	attackstring
+	ppreduce
+	callasm_cmd 103
+	.word MOVE_FAILED + 2
+	goto_cmd 0x82DA79D
+
+TARGETSTATSWITCH:
+	attackcanceler
+	jumpifsubstituteaffects MOVE_FAILED
+	jumpifcantchangetwostats MOVE_FAILED
+	accuracycheck MOVE_MISSED 0x0
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	callasm_cmd 29 @do all stat changes that are possible
+	setbyte EndTurnTracker 0x0
+	cmd49 0x0 0x0
+	goto_cmd MOVE_TRY_SWITCHING
 
 BESTOW:
 	attackcanceler
@@ -1528,6 +1602,7 @@ ATTACK_SWITCH:
 	faintpokemon bank_target 0x0 0x0
 	setbyte EndTurnTracker 0x0
 	cmd49 0x0 0x0
+MOVE_TRY_SWITCHING:
 	jumpifonlyonepokemoninteam JUSTEND
 	openpartyscreen bank_attacker JUSTEND
 	swithchoutabilities bank_attacker

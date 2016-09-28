@@ -195,6 +195,7 @@ obj_delete = 0x08007244|1;
 b_load_sprite = 0x080A9614|1;
 update_bank_sprite = 0x080A9708|1;
 bank_sprite_sth = 0x080A9ADC|1;
+get_poke_ability = 0x0806B6D8|1;
 
 attack_iteration_cleanup = 0x804AF30|1;
 prepare_pokemon_battle_sprite_manipulation_buffer = 0x08034414|1;

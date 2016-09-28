@@ -45,6 +45,7 @@ struct bank_affecting{
     s8 stockpile_def_changes;
     s8 stockpile_sp_def_changes;
     u8 autonomize_uses;
+    u8 lastmove_type;
     u16 wish_hp;
 };
 

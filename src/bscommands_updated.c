@@ -956,6 +956,7 @@ void atk49_move_end_turn()
                 else
                     move_hit_with_pbs[bank_target]=0xFFFF;
             }
+            new_battlestruct.ptr->bank_affecting[bank_attacker].lastmove_type = current_move_type + 0x80;
             INC_END_EVENTS
             break;
         case 20: //setup mirror_move_buffers
