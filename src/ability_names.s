@@ -199,7 +199,7 @@ ability_names_table:
 .byte D_, e_, l_, t_, a_, Space, S_, t_, r_, e_, a_, m_, Termin
 .byte S_, t_, a_, m_, i_, n_, a_, Termin, Space, Space, Space, Space, Space
 .byte W_, i_, m_, p_, Space, O_, u_, t_, Termin, Space, Space, Space, Space 
-.byte C_, r_, i_, s_, i_, s_, Space, E_, x_, i_, t_ Termin, Space
+.byte C_, r_, i_, s_, i_, s_, Space, E_, x_, i_, t_ ,Termin, Space
 .byte W_, a_, t_, e_, r_, Space, S_, q_, a_, s_, h_, Termin, Space
 .byte M_, e_, r_, c_, i_, l_, e_, s_, s_, Termin, Space, Space, Space
 .byte S_, h_, i_, e_, l_, d_, s_, Space, D_, o_, w_, n_, Termin
@@ -214,7 +214,7 @@ ability_names_table:
 .byte G_, a_, l_, v_, a_, n_, i_, z_, e_, Termin, Space, Space, Space
 .byte S_, u_, r_, g_, e_, Space, S_, u_, r_, f_, e_, r_, Termin
 .byte S_, c_, h_, o_, o_, l_, i_, n_, g_, Termin, Space, Space, Space
-.byte D_, i_, s_, g_, u_, i_, s_, e, Termin, Space, Space, Space, Space
+.byte D_, i_, s_, g_, u_, i_, s_, e_, Termin, Space, Space, Space, Space
 .byte B_, a_, t_, t_, l_, e_, Space, B_, o_, n_, d_, Termin, Space
 .byte P_, o_, w_, e_, r_, Space, F_, o_, r_, g_, e_, Termin, Space
 .byte C_, o_, r_, r_, o_, s_, i_, o_, n_, Termin, Space, Space, Space
@@ -225,7 +225,7 @@ ability_names_table:
 .byte B_, a_, t_, t_, e_, r_, y_, Termin, Space, Space, Space, Space, Space
 .byte F_, l_, u_, f_, f_, y_, Termin, Space, Space, Space, Space, Space, Space
 .byte D_, a_, z_, z_, l_, i_, n_, g_, Termin, Space, Space, Space, Space 
-.byte S_, o_, u_, l_, Dash, H_, e_, a_, r_, t_, Space, Space
+.byte S_, o_, u_, l_, Dash, H_, e_, a_, r_, t_, Termin, Space, Space
 .byte T_, a_, n_, g_, l_, e_, d_, Space, H_, a_, i_, r_, Termin
 .byte R_, e_, c_, e_, i_, v_, e_, r_, Termin, Space, Space, Space, Space
 .byte A_, l_, c_, h_, e_, m_, i_, c_, Termin, Space, Space, Space, Space
@@ -237,7 +237,7 @@ ability_names_table:
 .byte G_, r_, a_, s_, s_, y_, Space, S_, u_, r_, g_, e_, Termin
 .byte F_, u_, l_, l_, Space, M_, e_, t_, a_, l_, Termin, Space, Space
 .byte D_, u_, s_, k_, Space, S_, h_, i_, e_, l_, d_, Termin, Space
-.byte P_, r_, i_, s_, m_, Space, S_, h_, i_, e_, l_, d_, Termin
+.byte P_, r_, i_, s_, m_, Space, A_, r_, m_, o_, r_, Termin, Space
 .byte Dash, Dash, Dash, Dash, Dash, Dash, Termin, Space, Space, Space, Space, Space, Space
 .byte Dash, Dash, Dash, Dash, Dash, Dash, Termin, Space, Space, Space, Space, Space, Space
 .byte Dash, Dash, Dash, Dash, Dash, Dash, Termin, Space, Space, Space, Space, Space, Space
