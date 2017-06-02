@@ -290,7 +290,7 @@ u8 ability_battle_effects(u8 switch_id, u8 bank, u8 ability_to_check, u8 special
 {
     u8 effect = false;
     u16 curr_move;
-    if (move > 0 && move < 622)
+    if (move > 0 && move < (ALL_MOVES+1))
         curr_move = move;
     else
         curr_move = current_move;
@@ -935,7 +935,7 @@ u8 ability_battle_effects(u8 switch_id, u8 bank, u8 ability_to_check, u8 special
             }
         }
         break;
-    case 4: //move end turn abilities
+    case 4: //end move abilities
         if (has_ability_effect(bank, 0) && MOVE_WORKED && (special_statuses[bank_target].moveturn_losthp) && battle_participants[bank_attacker].current_hp)
         {
             u16 curr_hp = battle_participants[bank].current_hp;

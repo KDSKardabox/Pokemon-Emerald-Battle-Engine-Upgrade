@@ -6,7 +6,8 @@
 #define ALL_POKES       412     //number of all pokemon
 #define ALL_ITEMS       377     //number of all items
 #define NUM_OF_EVOS     5       //number of evolutions per pokemon
-#define KEYSTONE        4     //mega item that the player has to posses in order to mega evolve
+#define KEYSTONE        4     	//mega item that the player has to posses in order to mega evolve
+#define ALL_MOVES		621		//number of all moves
 
 #define BUILD_LEARNSETS true        //set to false if you modified the learnsets and dont want them to get changed
 #define GEN4_LEARNSETS  false //set to true if you want to have learnsets for pokemon up to genIV
