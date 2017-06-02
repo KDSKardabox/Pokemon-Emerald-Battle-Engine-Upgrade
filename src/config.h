@@ -35,6 +35,7 @@
 #define FORCE_SET_FLAG      0x0   //if that flag is set, the player cannot switch a pokemon when opponent faints
 #define NO_OF_SLIDING_MSG_TRAINERS 10 //number of trainers that say things in the middle of a battle
 #define SCHOOLING_LEVEL 20
+#define GENVII_PARALYSIS_SPEED_REDUCTION	true // speed is cut by a half instead of decreased by 75%
 
 //form indexes
 #define POKE_CHERRIM                1000
