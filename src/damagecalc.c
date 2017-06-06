@@ -196,7 +196,11 @@ u16 get_speed(u8 bank)
         speed /= 4;
     //paralysis
     if (battle_participants[bank].status.flags.paralysis)
-        speed /= 4;
+	#if GENVII_PARALYSIS_SPEED_REDUCTION == true
+        speed /= 2;
+	#else
+		speed /= 4;
+	#endif
     speed = apply_statboost(speed, battle_participants[bank].spd_buff);
 
     return speed;

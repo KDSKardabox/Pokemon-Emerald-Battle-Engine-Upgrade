@@ -6,7 +6,8 @@
 #define ALL_POKES       412     //number of all pokemon
 #define ALL_ITEMS       377     //number of all items
 #define NUM_OF_EVOS     5       //number of evolutions per pokemon
-#define KEYSTONE        4     //mega item that the player has to posses in order to mega evolve
+#define KEYSTONE        4     	//mega item that the player has to posses in order to mega evolve
+#define ALL_MOVES		621		//number of all moves
 
 #define BUILD_LEARNSETS true        //set to false if you modified the learnsets and dont want them to get changed
 #define GEN4_LEARNSETS  false //set to true if you want to have learnsets for pokemon up to genIV
@@ -34,6 +35,7 @@
 #define FORCE_SET_FLAG      0x0   //if that flag is set, the player cannot switch a pokemon when opponent faints
 #define NO_OF_SLIDING_MSG_TRAINERS 10 //number of trainers that say things in the middle of a battle
 #define SCHOOLING_LEVEL 20
+#define GENVII_PARALYSIS_SPEED_REDUCTION	true // speed is cut by a half instead of decreased by 75%
 
 //form indexes
 #define POKE_CHERRIM                1000
