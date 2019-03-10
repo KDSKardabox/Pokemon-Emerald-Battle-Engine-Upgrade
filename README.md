@@ -1,4 +1,6 @@
-# Pokemon-Emerald-Battle-Engine-Upgrade
+NOTE: I recommend switching to decomps (pokeemerald). And use the new version of battle_engine suited to decomps. https://github.com/DizzyEggg/pokeemerald/tree/battle_engine_v2
+
+# Pokemon-Emerald-Battle-Engine-Upgrade (Outdated)
 
 Installation instructions:
 
