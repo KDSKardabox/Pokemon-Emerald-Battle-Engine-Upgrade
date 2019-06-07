@@ -811,6 +811,7 @@ SPIT_UP:
 	damagecalc
 	stockpiletobasedamage 0x82D9F94
 	damageadjustment
+	stockpiletobasedamage 0x82D9F94
 	attackanimation
 	waitanimation
 	effectiveness_sound
